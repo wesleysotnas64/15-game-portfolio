@@ -166,10 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45df876fed731847b9e500df6dba41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  piece: []
   piecePrefab: {fileID: 3537903013266931125, guid: 1e2ecd6a06cb7b943a2a538bc1dfbb3d, type: 3}
-  boardRows: 4
-  boardColumns: 4
-  spacing: 1
+  side: 4
+  slideTime: 0.25
+  inSlide: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

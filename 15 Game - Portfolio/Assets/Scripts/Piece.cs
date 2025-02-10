@@ -1,15 +1,14 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
-    public int number;
+    private int number;
     public TMP_Text textNumber;
-    
-    void Start()
-    {
-        SetNumber(number);
-    }
+    private int row;
+    private int column;
+    private Board board;
 
     public void SetNumber(int n)
     {
@@ -17,8 +16,31 @@ public class Piece : MonoBehaviour
         textNumber.text = number.ToString();
     }
 
+    public void SetBoard(Board b)
+    {
+        board = b;
+    }
+
+    public void SetIndex(int r, int c)
+    {
+        row = r;
+        column = c;
+    }
+
     private void OnMouseDown()
     {
-        Debug.Log($"Clicou na peça {number}");
+        Debug.Log($"Piece: {number} | Row: {row} | Column: {column}");
+        board.SlidePiece(row, column);
+    }
+
+    private void OnMouseEnter()
+    {
+        GetComponent<SpriteRenderer>().color = Color.blue;
+        board.SetColorHoverAdjacentEnable(row, column);
+    }
+    private void OnMouseExit()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
+        board.SetColorHoverAdjacentDisable(row, column);
     }
 }
